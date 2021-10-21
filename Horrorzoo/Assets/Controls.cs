@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Controls : MonoBehaviour
 {
-    public GameObject Taschenlampe;
+    private Light myLight;
     void Start()
     {
-        
+        myLight = GetComponent<Light>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        if(Input.GetKeyDown(KeyCode.T))
         {
-            Taschenlampe.SetActive(!Taschenlampe.activeSelf);
+            myLight.enabled = !myLight.enabled;
         }
     }
 }
