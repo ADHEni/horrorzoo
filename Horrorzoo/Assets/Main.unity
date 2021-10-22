@@ -875,9 +875,11 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Controls
 
-    E = PauseMenu
+    E = PickUP Items
 
-    T = Taschenschlampe'
+    T = Taschenschlampe
+
+    ESC = PausMenu'
 --- !u!222 &1074301308
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1083,7 +1085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1350073770
 MonoBehaviour:
   m_ObjectHideFlags: 0
