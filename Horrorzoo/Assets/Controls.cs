@@ -26,8 +26,8 @@ public class Controls : MonoBehaviour
         }
 
         if (Input.GetKeyDown(controls["Aufheben"])) { 
-            RaycastHit hit; 
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(557.0f, 313.0f, 0.0f)); 
+            RaycastHit hit;
+            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
             if (Physics.Raycast (ray,out hit,3f)) {
                 if(Items.Contains(hit.transform.tag))
                 {
