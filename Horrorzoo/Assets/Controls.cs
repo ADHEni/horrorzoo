@@ -4,18 +4,37 @@ using UnityEngine;
 
 public class Controls : MonoBehaviour
 {
-    private Light myLight;
+    private GameObject myLight;
+    public string Inventory;
+
+    public List<string> Items;
+
+    private Dictionary<string,KeyCode> controls = new Dictionary<string, KeyCode>();
+
     void Start()
     {
-        myLight = GetComponent<Light>();
+        myLight = GameObject.Find("Taschenlampe");
+        controls.Add("Taschenschlampe",KeyCode.T);
+        controls.Add("Aufheben",KeyCode.E);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T))
+        if(Input.GetKeyDown(controls["Taschenschlampe"]))
         {
-            myLight.enabled = !myLight.enabled;
+            myLight.GetComponent<Light>().enabled = !myLight.GetComponent<Light>().enabled;
+        }
+
+        if (Input.GetKeyDown(controls["Aufheben"])) { 
+            RaycastHit hit; 
+            Ray ray = Camera.main.ScreenPointToRay(new Vector3(557.0f, 313.0f, 0.0f)); 
+            if (Physics.Raycast (ray,out hit,3f)) {
+                if(Items.Contains(hit.transform.tag))
+                {
+                    Inventory = hit.transform.tag;
+                    Destroy(hit.transform.gameObject);
+                }
+            }
         }
     }
 }
